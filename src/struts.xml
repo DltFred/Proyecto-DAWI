@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.custom.i18n.resources" value="login" />
+
+	<package name="dawi" namespace="/"
+		extends="struts-default,json-default">
+		<!-- ACTION LANG -->
+		<action name="lang" method="translate"
+			class="action.ActionLang">
+			<result name="ok">/login.jsp</result>
+		</action>
+
+		<!-- ACTION PRODUCTOS -->
+		<action name="lstProducto" method="listado"
+			class="action.ActionProducto">
+			<result name="ok"></result>
+		</action>
+
+		<action name="lstCategorias" method="llenaComboCat"
+			class="action.ActionProducto">
+			<result name="ok"></result>
+		</action>
+
+		<action name="crudProducto" method="crud"
+			class="action.ActionProducto">
+			<result name="ok"></result>
+		</action>
+
+		<action name="lstFiltrado" method="filtraProducto"
+			class="action.ActionProducto">
+			<result name="ok">/busqueda.jsp</result>
+		</action>
+
+		<!-- ACTION TIENDA -->
+		<action name="lstTienda" method="listado"
+			class="action.ActionTienda">
+			<result name="ok"></result>
+		</action>
+
+		<action name="crudTienda" method="crud"
+			class="action.ActionTienda">
+			<result name="ok"></result>
+		</action>
+
+		<!-- ACTION USUARIOS -->
+		<action name="crudUsuario" method="crud"
+			class="action.ActionUsuario">
+			<result name="registered">/login.jsp</result>
+			<result name="logged">/principal.jsp</result>
+			<result name="update">/mantUsuario.jsp</result>
+		</action>
+	</package>
+
+</struts>
